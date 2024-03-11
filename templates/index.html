@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/styles.css') }}">
+    <!-- Include the Highlight.js stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    <!-- Include the Highlight.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    <!-- Include the Quill stylesheet -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <!-- Include the Quill library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    
+</head>
+<body>
+    <div class="grid-container">
+        <div class="item1">
+            <div id="toolbar">
+                <button class="ql-compileButton" data-format="compileButton">Compile</button>
+                <button class="ql-runButton" data-format="runButton">Run</button>
+                <button class="ql-previousButton" data-format="previousButton">Previous</button>
+                <button class="ql-stepButton" data-format="stepButton">Step</button>
+                <select class="ql-debug-dropdown">
+                    <option value="edit">Edit</option>
+                    <option value="debug">Debug</option>
+                </select>
+            </div>
+            <div id="line-numbers" class="line-numbers">
+                <!-- Line numbers will be added dynamically here -->
+            </div>
+            <div id="editor"></div>
+            <script type="text/javascript" src="{{ url_for('static', filename='code/js/quillscript.js') }}"></script>
+            <div id="output" class="ql-output"></div>
+        </div>
+        <div class="item2">
+            <div id="memory-header">Memory</div> 
+            <div id="memory" class="memory">
+                <!-- Memory added here using JavaScript -->
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='code/js/memory.js') }}"></script>
+        </div>
+        <div class="item3">
+            <div id="variable-header">Variables</div>
+            <div id="variable-controls" class="variable-controls">
+                <!-- Variable selector added here using JavaScript for each variable -->
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='code/js/variables.js') }}"></script>
+        </div>
+        <div class="item4">
+            <div id="output-header">Code Output</div>
+            <div id="code-output" class="code-output">
+                <!-- Code output added here using JavaScript -->
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.3/socket.io.js"></script>
+            <script type="text/javascript" src="{{ url_for('static', filename='code/js/codeOutput.js') }}"></script>
+        </div>
+    </div>
+</body>
+</html>
